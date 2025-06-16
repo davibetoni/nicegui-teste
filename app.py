@@ -5,4 +5,4 @@ def main_page():
     ui.label('Bem-vindo ao FinGuide')
     ui.button('Clique aqui', on_click=lambda: ui.notify('Você clicou!'))
 
-ui.run(title='FinGuide App', reload=False)
+ui.run(title='FinGuide', port=10000, host='0.0.0.0', reload=False)
