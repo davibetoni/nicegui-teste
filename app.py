@@ -13,8 +13,6 @@ app.add_static_files('/static', os.path.join(os.getcwd(), 'static'))
 generated_glb_files = [] 
 current_displayed_filename = None 
 
-ui.add_head_html('<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>')
-
 # Estas variáveis globais serão usadas pelos controles na interface
 current_material_type = None
 current_num_floors = None
@@ -92,9 +90,10 @@ async def home():
     if filename:
         model_viewer_element_id = "my-model-viewer" # ID fixo para o model-viewer
         ui.add_body_html(f'''
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
         <model-viewer 
             id="{model_viewer_element_id}"
-            src="/static/{os.path.basename(filename)}?_t={time.time()}"
+            src="/static/{os.path.basename(filename)}"
             auto-rotate 
             camera-controls 
             shadow-intensity="1"
